@@ -13,6 +13,7 @@
 		4F4CD1961C99209800A3C61E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4CD1941C99209800A3C61E /* Main.storyboard */; };
 		4F4CD1981C99209800A3C61E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4CD1971C99209800A3C61E /* Assets.xcassets */; };
 		4F4CD19B1C99209800A3C61E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4CD1991C99209800A3C61E /* LaunchScreen.storyboard */; };
+		4F4CD1A41C99272E00A3C61E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4F4CD1A31C99272E00A3C61E /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4F4CD1971C99209800A3C61E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F4CD19A1C99209800A3C61E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F4CD19C1C99209800A3C61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F4CD1A31C99272E00A3C61E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				4F4CD1991C99209800A3C61E /* LaunchScreen.storyboard */,
 				4F4CD19C1C99209800A3C61E /* Info.plist */,
 				4F4CD18B1C99209800A3C61E /* Supporting Files */,
+				4F4CD1A31C99272E00A3C61E /* Settings.bundle */,
 			);
 			path = Demo_XcodeScript;
 			sourceTree = "<group>";
@@ -89,6 +92,7 @@
 				4F4CD1841C99209800A3C61E /* Sources */,
 				4F4CD1851C99209800A3C61E /* Frameworks */,
 				4F4CD1861C99209800A3C61E /* Resources */,
+				4F4CD1A21C99215A00A3C61E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -136,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F4CD1A41C99272E00A3C61E /* Settings.bundle in Resources */,
 				4F4CD19B1C99209800A3C61E /* LaunchScreen.storyboard in Resources */,
 				4F4CD1981C99209800A3C61E /* Assets.xcassets in Resources */,
 				4F4CD1961C99209800A3C61E /* Main.storyboard in Resources */,
@@ -143,6 +148,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F4CD1A21C99215A00A3C61E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/build-script.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F4CD1841C99209800A3C61E /* Sources */ = {
@@ -213,7 +234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -251,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -264,6 +285,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Demo_XcodeScript/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tickCoder.Demo-XcodeScript";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -275,6 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Demo_XcodeScript/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tickCoder.Demo-XcodeScript";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +323,7 @@
 				4F4CD1A11C99209800A3C61E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
