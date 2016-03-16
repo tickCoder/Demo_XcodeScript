@@ -2,7 +2,7 @@
 # 不要将此文件加入到工程文件中，放在工程根目录下即可
 
 # 获取编译目录Info.plist(可能是其他名字)文件地址
-# INFOPLISTPATH_BUILD="${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}.app/Info.plist"
+INFOPLISTPATH_BUILD="${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}.app/Info.plist"
 # 获取工程目录Info.plist(可能是其他名字)文件地址
 # INFOPLISTPATH_PROJC= PRODUCT_SETTINGS_PATH
 
@@ -13,7 +13,7 @@
 # /EXECUTABLE_NAME-xxx/Build/Products/Debug-iphoneos/EXECUTABLE_NAME.app/Info.plist
 # /EXECUTABLE_NAME-xxx/Build/Products/Debug-iphoneos/EXECUTABLE_NAME.app/Settings.bundle
 # /EXECUTABLE_NAME-xxx/Build/Products/Debug-iphoneos/EXECUTABLE_NAME.app.dSYM
-# echo "$INFOPLISTPATH_BUILD"
+echo "INFOPLISTPATH_BUILD: ${INFOPLISTPATH_BUILD}"
 
 # 获取工程中的Info.plist文件地址
 # echo "$PRODUCT_SETTINGS_PATH"
@@ -26,7 +26,7 @@ PLISTBUDDY="/usr/libexec/PlistBuddy"
 # git rev-parse --short=12 HEAD (取前12位)
 # git rev-parse HEAD (取全部)
 GITREVSHA=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}" rev-parse --short=12 HEAD)
-echo "GITHash: $(GITREVSHA)"
+echo "GITHash: ${GITREVSHA})"
 
 ## 获取build版本号，如20160103
 build_version=`date "+%Y%m%d%H%M"`
@@ -35,14 +35,17 @@ build_version=`date "+%Y%m%d%H%M"`
 
 
 
-#＃设置GITHash
+## 设置GITHash
 # 需要提前在工程中的Info.plist中加入GITHash项，值随意
 # 设置编译目录中Info.plist的GITHash
-# $PLISTBUDDY -c "Set :GITHash $GITREVSHA" "${INFOPLISTPATH_BUILD}"
+$PLISTBUDDY -c "Set :GITHash $GITREVSHA" "${INFOPLISTPATH_BUILD}"
 # 设置工程目录中Info.plist的GITHash
 $PLISTBUDDY  -c "Set :GITHash $GITREVSHA" $PRODUCT_SETTINGS_PATH
 
+## 设置build version
 # /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $build_version" $PRODUCT_SETTINGS_PATH
+# 设置编译目录中Info.plist的build版本号
+$PLISTBUDDY  -c "Set :CFBundleVersion $build_version" $INFOPLISTPATH_BUILD
 # 设置工程目录中Info.plist的build版本号
 $PLISTBUDDY  -c "Set :CFBundleVersion $build_version" $PRODUCT_SETTINGS_PATH
 
