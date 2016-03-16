@@ -66,3 +66,27 @@ $PLISTBUDDY  -c "Set :CFBundleVersion $build_version" $PRODUCT_SETTINGS_PATH
 # 如提交后commitid为12345，之后编译得到发布产品A，这时修改了工程目录的Info.plist的GITHash和buildVersion
 # 此时产生新了的修改项待提交，因此工程中的这两项与发布的产品A的版本号，GITHash不一致
 
+## 工程中的GITHash仅作为参考，实际应该为它的下一次提交
+
+#	动作				时间	  	Info.plist.commitid	 	是否为发布版		git.commitid 
+# -------------------------------------------------------------------------------
+#	bug修改完成		16:00  	ABCDE					否				---			 
+#	提交				16:01	ABCDE					否				BBCDE
+#	编译发布版		16:02	BBCDE					是 				
+#	提交改动			16:03	BBCDE					否				CBCDE
+# -------------------------------------------------------------------------------
+## 实际上发布版中Info.plist中的GITHash为其上一次的commitid
+## 因此在编译发布版之前，一定要先提交，再编译（此时会更改build_time和GITHash），之后再次提交，完成此版
+## 当出现问题时，返回来的是BBCDE，此时查找git仓库的BBCDE的下一次（即CBCDE），chekcout此代码即可
+
+## 不知道有没更好的方法！！！
+
+## 问题在于编译时获得的是上一次commit的id
+
+## 解决方案一
+# 不在编译时改写工程目录中的build_time和GITHash
+# 编译时仅改写编译目录中的build_time和GITHash
+# 完全提交到git服务器之后再编译出发布版
+# 出现问题时按照时间、commitid找即可
+
+
