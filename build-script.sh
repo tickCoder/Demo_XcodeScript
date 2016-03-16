@@ -57,3 +57,8 @@ $PLISTBUDDY  -c "Set :CFBundleVersion $build_version" $PRODUCT_SETTINGS_PATH
 # NSString *githash = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"GITHash"];
 # [[NSUserDefaults standardUserDefaults] setObject:githash forKey:@"githash_preference"];
 
+## 注意！！！
+# 由于编译时向工程目录的Info.plist更新了内容
+# 如提交后commitid为12345，之后编译得到发布产品A，这时修改了工程目录的Info.plist的GITHash和buildVersion
+# 此时产生新了的修改项待提交，因此工程中的这两项与发布的产品A的版本号，GITHash不一致
+
