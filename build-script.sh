@@ -26,9 +26,10 @@ PLISTBUDDY="/usr/libexec/PlistBuddy"
 # git rev-parse --short=12 HEAD (取前12位)
 # git rev-parse HEAD (取全部)
 GITREVSHA=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}" rev-parse --short=12 HEAD)
+echo "GITHash: $(GITREVSHA)"
 
 ## 获取build版本号，如20160103
-build_version=`date "+%Y%m%d"`
+build_version=`date "+%Y%m%d%H%M"`
 
 
 
